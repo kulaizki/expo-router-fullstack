@@ -2,6 +2,7 @@ import { Link, Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Alert } from "react-native";
 import { Colors } from "@/constants/Colors";
+import { DrawerToggleButton } from '@react-navigation/drawer';
 
 const Layout = () => {
   return (
@@ -17,6 +18,7 @@ const Layout = () => {
             <Ionicons name="log-out-outline" size={24} color="#fff" />
           </Link>
         ),
+        headerLeft: () => <DrawerToggleButton tintColor="#fff" />,
       }}
     >
       <Tabs.Screen
