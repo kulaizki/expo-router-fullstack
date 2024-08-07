@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import Colors from "@/constants/Colors";
+import { Colors } from "@/constants/Colors";
 import { Link } from "expo-router";
 
 const Page = () => {

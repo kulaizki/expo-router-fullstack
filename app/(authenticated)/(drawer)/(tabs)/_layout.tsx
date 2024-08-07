@@ -1,7 +1,7 @@
 import { Link, Tabs } from "expo-router";
-import Colors from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 import { Alert } from "react-native";
+import { Colors } from "@/constants/Colors";
 
 const Layout = () => {
   return (
