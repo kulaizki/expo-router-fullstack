@@ -10,6 +10,7 @@ const Layout = () => {
           backgroundColor: Colors.background,
         },
         headerTintColor: "#fff",
+        tabBarActiveTintColor: Colors.primary,
         headerRight: () => (
           <Link href={"/"} replace asChild>
             <Ionicons name="log-out-outline" size={24} color="#fff" />
