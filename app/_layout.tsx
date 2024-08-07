@@ -51,12 +51,16 @@ const InitialLayout = () => {
           name="register"
           options={{
             title: "Create Account",
-            headerBackTitle: "Back",
+            headerBackTitle: "Login",
           }}
         />
         <Stack.Screen
           name="privacy"
           options={{ title: "Privacy Policy", presentation: "modal" }}
+        />
+        <Stack.Screen
+          name="(authenticated)/(tabs)"
+          options={{ headerShown: false }}
         />
       </Stack>
     </>
