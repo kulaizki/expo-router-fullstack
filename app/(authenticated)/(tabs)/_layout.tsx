@@ -1,4 +1,4 @@
-import { Tabs } from "expo-router";
+import { Link, Tabs } from "expo-router";
 import Colors from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -10,6 +10,11 @@ const Layout = () => {
           backgroundColor: Colors.background,
         },
         headerTintColor: "#fff",
+        headerRight: () => (
+          <Link href={"/"} replace asChild>
+            <Ionicons name="log-out-outline" size={24} color="#fff" />
+          </Link>
+        )
       }}
     >
       <Tabs.Screen
