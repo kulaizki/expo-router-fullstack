@@ -5,6 +5,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { Colors } from "@/constants/Colors";
+import { AuthProvider } from "@/context/AuthContext";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -58,15 +59,16 @@ const InitialLayout = () => {
           name="privacy"
           options={{ title: "Privacy Policy", presentation: "modal" }}
         />
-        <Stack.Screen
-          name="(authenticated)"
-          options={{ headerShown: false }}
-        />
+        <Stack.Screen name="(authenticated)" options={{ headerShown: false }} />
       </Stack>
     </>
   );
 };
 
 export default function RootLayout() {
-  return <InitialLayout />;
+  return (
+    <AuthProvider>
+      <InitialLayout />
+    </AuthProvider>
+  );
 }
