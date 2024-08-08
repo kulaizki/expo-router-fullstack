@@ -1,9 +1,15 @@
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
 
 const Page = () => {
+  async function fetchHello() {
+    const response = await fetch('/api/hello');
+    const data = await response.json();
+    alert('Hello ' + data.hello);
+  }
+
   return (
     <View>
-      <Text>Page</Text>
+      <Button onPress={() => fetchHello()} title="Fetch hello" />
     </View>
   )
 }
