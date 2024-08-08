@@ -8,7 +8,7 @@ const Page = () => {
     <View>
       <Stack.Screen
         options={{
-          title: `List #${id}`,
+          title: `List #${id} - Outside`,
         }}
       />
       <Text>My ID: {id}</Text>
