@@ -41,8 +41,8 @@ const InitialLayout = () => {
     if (!initialized) return;
 
     const inAuthGroup = segments[0] === "(authenticated)";
-    console.log('segments', segments);
-    console.log('token', token);
+    // console.log('segments', segments);
+    // console.log('token', token);
 
     if (token && !inAuthGroup) {
       router.replace('/(authenticated)/(drawer)/(tabs)/home') // bring user to home page
