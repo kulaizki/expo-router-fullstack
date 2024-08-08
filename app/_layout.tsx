@@ -1,6 +1,6 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
-import { Stack, useRouter, useSegments } from "expo-router";
+import { Slot, Stack, useRouter, useSegments } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
@@ -40,9 +40,13 @@ const InitialLayout = () => {
   useEffect(() => {
     if (!initialized) return;
 
-    if (token) {
+    const inAuthGroup = segments[0] === "(authenticated)";
+    console.log('segments', segments);
+    console.log('token', token);
+
+    if (token && !inAuthGroup) {
       router.replace('/(authenticated)/(drawer)/(tabs)/home') // bring user to home page
-    } else {
+    } else if (!token && inAuthGroup) {
       router.replace('/') // bring user back to login
     }
   })
@@ -50,7 +54,7 @@ const InitialLayout = () => {
 
   if (!loaded || !initialized) {
     // return <ActivityIndicator size={"large"} />;
-    return null;
+    return <Slot />
   }
 
   return (
