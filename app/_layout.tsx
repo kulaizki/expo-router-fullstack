@@ -59,7 +59,7 @@ const InitialLayout = () => {
           options={{ title: "Privacy Policy", presentation: "modal" }}
         />
         <Stack.Screen
-          name="(authenticated)/(drawer)"
+          name="(authenticated)"
           options={{ headerShown: false }}
         />
       </Stack>
