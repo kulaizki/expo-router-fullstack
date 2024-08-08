@@ -1,11 +1,12 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Stack, useRouter, useSegments } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { Colors } from "@/constants/Colors";
-import { AuthProvider } from "@/context/AuthContext";
+import { AuthProvider, useAuth } from "@/context/AuthContext";
+import { ActivityIndicator } from "react-native";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -21,6 +22,10 @@ const InitialLayout = () => {
     ...FontAwesome.font,
   });
 
+  const { token, initialized } = useAuth();
+  const router = useRouter();
+  const segments = useSegments();
+
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
@@ -32,7 +37,19 @@ const InitialLayout = () => {
     }
   }, [loaded]);
 
-  if (!loaded) {
+  useEffect(() => {
+    if (!initialized) return;
+
+    if (token) {
+      router.replace('/(authenticated)/(drawer)/(tabs)/home') // bring user to home page
+    } else {
+      router.replace('/') // bring user back to login
+    }
+  })
+
+
+  if (!loaded || !initialized) {
+    // return <ActivityIndicator size={"large"} />;
     return null;
   }
 
