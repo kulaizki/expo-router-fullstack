@@ -6,7 +6,6 @@ import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
 import { Colors } from "@/constants/Colors";
 import { AuthProvider, useAuth } from "@/context/AuthContext";
-import { ActivityIndicator } from "react-native";
 
 export {
   // Catch any errors thrown by the Layout component.
