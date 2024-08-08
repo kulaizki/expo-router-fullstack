@@ -39,6 +39,7 @@ export const AuthProvider = ({ children }: any) => {
 		try {
 			const result = await axios.post(`${API_URL}/auth`, { email, password });
 			setToken(result.data.token);
+      console.log(result.data.token);
 			axios.defaults.headers.common['Authorization'] = `Bearer ${result.data.token}`;
 			await SecureStore.setItemAsync(JWT_KEY, result.data.token);
 			return result;
